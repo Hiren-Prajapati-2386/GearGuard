@@ -46,7 +46,9 @@ model Request {
   type         String    // Corrective or Preventive
   status       String    @default("New") // New, In Progress, Repaired, Scrap
   priority     String    @default("Medium")
+  description    String?
   scheduledDate DateTime?
+  estimatedHours  Float?    @default(0) // NEW FIELD
   hoursSpent   Float?    @default(0)
   equipmentId  String
   equipment    Equipment @relation(fields: [equipmentId], references: [id])

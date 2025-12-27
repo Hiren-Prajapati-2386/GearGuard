@@ -4592,10 +4592,12 @@ export namespace Prisma {
   }
 
   export type RequestAvgAggregateOutputType = {
+    estimatedHours: number | null
     hoursSpent: number | null
   }
 
   export type RequestSumAggregateOutputType = {
+    estimatedHours: number | null
     hoursSpent: number | null
   }
 
@@ -4605,7 +4607,9 @@ export namespace Prisma {
     type: string | null
     status: string | null
     priority: string | null
+    description: string | null
     scheduledDate: Date | null
+    estimatedHours: number | null
     hoursSpent: number | null
     equipmentId: string | null
     teamId: string | null
@@ -4619,7 +4623,9 @@ export namespace Prisma {
     type: string | null
     status: string | null
     priority: string | null
+    description: string | null
     scheduledDate: Date | null
+    estimatedHours: number | null
     hoursSpent: number | null
     equipmentId: string | null
     teamId: string | null
@@ -4633,7 +4639,9 @@ export namespace Prisma {
     type: number
     status: number
     priority: number
+    description: number
     scheduledDate: number
+    estimatedHours: number
     hoursSpent: number
     equipmentId: number
     teamId: number
@@ -4644,10 +4652,12 @@ export namespace Prisma {
 
 
   export type RequestAvgAggregateInputType = {
+    estimatedHours?: true
     hoursSpent?: true
   }
 
   export type RequestSumAggregateInputType = {
+    estimatedHours?: true
     hoursSpent?: true
   }
 
@@ -4657,7 +4667,9 @@ export namespace Prisma {
     type?: true
     status?: true
     priority?: true
+    description?: true
     scheduledDate?: true
+    estimatedHours?: true
     hoursSpent?: true
     equipmentId?: true
     teamId?: true
@@ -4671,7 +4683,9 @@ export namespace Prisma {
     type?: true
     status?: true
     priority?: true
+    description?: true
     scheduledDate?: true
+    estimatedHours?: true
     hoursSpent?: true
     equipmentId?: true
     teamId?: true
@@ -4685,7 +4699,9 @@ export namespace Prisma {
     type?: true
     status?: true
     priority?: true
+    description?: true
     scheduledDate?: true
+    estimatedHours?: true
     hoursSpent?: true
     equipmentId?: true
     teamId?: true
@@ -4786,7 +4802,9 @@ export namespace Prisma {
     type: string
     status: string
     priority: string
+    description: string | null
     scheduledDate: Date | null
+    estimatedHours: number | null
     hoursSpent: number | null
     equipmentId: string
     teamId: string
@@ -4819,7 +4837,9 @@ export namespace Prisma {
     type?: boolean
     status?: boolean
     priority?: boolean
+    description?: boolean
     scheduledDate?: boolean
+    estimatedHours?: boolean
     hoursSpent?: boolean
     equipmentId?: boolean
     teamId?: boolean
@@ -4836,7 +4856,9 @@ export namespace Prisma {
     type?: boolean
     status?: boolean
     priority?: boolean
+    description?: boolean
     scheduledDate?: boolean
+    estimatedHours?: boolean
     hoursSpent?: boolean
     equipmentId?: boolean
     teamId?: boolean
@@ -4853,7 +4875,9 @@ export namespace Prisma {
     type?: boolean
     status?: boolean
     priority?: boolean
+    description?: boolean
     scheduledDate?: boolean
+    estimatedHours?: boolean
     hoursSpent?: boolean
     equipmentId?: boolean
     teamId?: boolean
@@ -4870,7 +4894,9 @@ export namespace Prisma {
     type?: boolean
     status?: boolean
     priority?: boolean
+    description?: boolean
     scheduledDate?: boolean
+    estimatedHours?: boolean
     hoursSpent?: boolean
     equipmentId?: boolean
     teamId?: boolean
@@ -4878,7 +4904,7 @@ export namespace Prisma {
     createdAt?: boolean
   }
 
-  export type RequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "subject" | "type" | "status" | "priority" | "scheduledDate" | "hoursSpent" | "equipmentId" | "teamId" | "technicianId" | "createdAt", ExtArgs["result"]["request"]>
+  export type RequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "subject" | "type" | "status" | "priority" | "description" | "scheduledDate" | "estimatedHours" | "hoursSpent" | "equipmentId" | "teamId" | "technicianId" | "createdAt", ExtArgs["result"]["request"]>
   export type RequestInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     equipment?: boolean | EquipmentDefaultArgs<ExtArgs>
     team?: boolean | TeamDefaultArgs<ExtArgs>
@@ -4908,7 +4934,9 @@ export namespace Prisma {
       type: string
       status: string
       priority: string
+      description: string | null
       scheduledDate: Date | null
+      estimatedHours: number | null
       hoursSpent: number | null
       equipmentId: string
       teamId: string
@@ -5345,7 +5373,9 @@ export namespace Prisma {
     readonly type: FieldRef<"Request", 'String'>
     readonly status: FieldRef<"Request", 'String'>
     readonly priority: FieldRef<"Request", 'String'>
+    readonly description: FieldRef<"Request", 'String'>
     readonly scheduledDate: FieldRef<"Request", 'DateTime'>
+    readonly estimatedHours: FieldRef<"Request", 'Float'>
     readonly hoursSpent: FieldRef<"Request", 'Float'>
     readonly equipmentId: FieldRef<"Request", 'String'>
     readonly teamId: FieldRef<"Request", 'String'>
@@ -5838,7 +5868,9 @@ export namespace Prisma {
     type: 'type',
     status: 'status',
     priority: 'priority',
+    description: 'description',
     scheduledDate: 'scheduledDate',
+    estimatedHours: 'estimatedHours',
     hoursSpent: 'hoursSpent',
     equipmentId: 'equipmentId',
     teamId: 'teamId',
@@ -6128,7 +6160,9 @@ export namespace Prisma {
     type?: StringFilter<"Request"> | string
     status?: StringFilter<"Request"> | string
     priority?: StringFilter<"Request"> | string
+    description?: StringNullableFilter<"Request"> | string | null
     scheduledDate?: DateTimeNullableFilter<"Request"> | Date | string | null
+    estimatedHours?: FloatNullableFilter<"Request"> | number | null
     hoursSpent?: FloatNullableFilter<"Request"> | number | null
     equipmentId?: StringFilter<"Request"> | string
     teamId?: StringFilter<"Request"> | string
@@ -6145,7 +6179,9 @@ export namespace Prisma {
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
+    description?: SortOrderInput | SortOrder
     scheduledDate?: SortOrderInput | SortOrder
+    estimatedHours?: SortOrderInput | SortOrder
     hoursSpent?: SortOrderInput | SortOrder
     equipmentId?: SortOrder
     teamId?: SortOrder
@@ -6165,7 +6201,9 @@ export namespace Prisma {
     type?: StringFilter<"Request"> | string
     status?: StringFilter<"Request"> | string
     priority?: StringFilter<"Request"> | string
+    description?: StringNullableFilter<"Request"> | string | null
     scheduledDate?: DateTimeNullableFilter<"Request"> | Date | string | null
+    estimatedHours?: FloatNullableFilter<"Request"> | number | null
     hoursSpent?: FloatNullableFilter<"Request"> | number | null
     equipmentId?: StringFilter<"Request"> | string
     teamId?: StringFilter<"Request"> | string
@@ -6182,7 +6220,9 @@ export namespace Prisma {
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
+    description?: SortOrderInput | SortOrder
     scheduledDate?: SortOrderInput | SortOrder
+    estimatedHours?: SortOrderInput | SortOrder
     hoursSpent?: SortOrderInput | SortOrder
     equipmentId?: SortOrder
     teamId?: SortOrder
@@ -6204,7 +6244,9 @@ export namespace Prisma {
     type?: StringWithAggregatesFilter<"Request"> | string
     status?: StringWithAggregatesFilter<"Request"> | string
     priority?: StringWithAggregatesFilter<"Request"> | string
+    description?: StringNullableWithAggregatesFilter<"Request"> | string | null
     scheduledDate?: DateTimeNullableWithAggregatesFilter<"Request"> | Date | string | null
+    estimatedHours?: FloatNullableWithAggregatesFilter<"Request"> | number | null
     hoursSpent?: FloatNullableWithAggregatesFilter<"Request"> | number | null
     equipmentId?: StringWithAggregatesFilter<"Request"> | string
     teamId?: StringWithAggregatesFilter<"Request"> | string
@@ -6411,7 +6453,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     createdAt?: Date | string
     equipment: EquipmentCreateNestedOneWithoutRequestsInput
@@ -6425,7 +6469,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     equipmentId: string
     teamId: string
@@ -6439,7 +6485,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     equipment?: EquipmentUpdateOneRequiredWithoutRequestsNestedInput
@@ -6453,7 +6501,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     equipmentId?: StringFieldUpdateOperationsInput | string
     teamId?: StringFieldUpdateOperationsInput | string
@@ -6467,7 +6517,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     equipmentId: string
     teamId: string
@@ -6481,7 +6533,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6492,7 +6546,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     equipmentId?: StringFieldUpdateOperationsInput | string
     teamId?: StringFieldUpdateOperationsInput | string
@@ -6735,7 +6791,9 @@ export namespace Prisma {
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
+    description?: SortOrder
     scheduledDate?: SortOrder
+    estimatedHours?: SortOrder
     hoursSpent?: SortOrder
     equipmentId?: SortOrder
     teamId?: SortOrder
@@ -6744,6 +6802,7 @@ export namespace Prisma {
   }
 
   export type RequestAvgOrderByAggregateInput = {
+    estimatedHours?: SortOrder
     hoursSpent?: SortOrder
   }
 
@@ -6753,7 +6812,9 @@ export namespace Prisma {
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
+    description?: SortOrder
     scheduledDate?: SortOrder
+    estimatedHours?: SortOrder
     hoursSpent?: SortOrder
     equipmentId?: SortOrder
     teamId?: SortOrder
@@ -6767,7 +6828,9 @@ export namespace Prisma {
     type?: SortOrder
     status?: SortOrder
     priority?: SortOrder
+    description?: SortOrder
     scheduledDate?: SortOrder
+    estimatedHours?: SortOrder
     hoursSpent?: SortOrder
     equipmentId?: SortOrder
     teamId?: SortOrder
@@ -6776,6 +6839,7 @@ export namespace Prisma {
   }
 
   export type RequestSumOrderByAggregateInput = {
+    estimatedHours?: SortOrder
     hoursSpent?: SortOrder
   }
 
@@ -7356,7 +7420,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     createdAt?: Date | string
     equipment: EquipmentCreateNestedOneWithoutRequestsInput
@@ -7369,7 +7435,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     equipmentId: string
     technicianId?: string | null
@@ -7468,7 +7536,9 @@ export namespace Prisma {
     type?: StringFilter<"Request"> | string
     status?: StringFilter<"Request"> | string
     priority?: StringFilter<"Request"> | string
+    description?: StringNullableFilter<"Request"> | string | null
     scheduledDate?: DateTimeNullableFilter<"Request"> | Date | string | null
+    estimatedHours?: FloatNullableFilter<"Request"> | number | null
     hoursSpent?: FloatNullableFilter<"Request"> | number | null
     equipmentId?: StringFilter<"Request"> | string
     teamId?: StringFilter<"Request"> | string
@@ -7503,7 +7573,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     createdAt?: Date | string
     equipment: EquipmentCreateNestedOneWithoutRequestsInput
@@ -7516,7 +7588,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     equipmentId: string
     teamId: string
@@ -7603,7 +7677,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     createdAt?: Date | string
     team: TeamCreateNestedOneWithoutRequestsInput
@@ -7616,7 +7692,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     teamId: string
     technicianId?: string | null
@@ -7855,7 +7933,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     equipmentId: string
     technicianId?: string | null
@@ -7923,7 +8003,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     equipment?: EquipmentUpdateOneRequiredWithoutRequestsNestedInput
@@ -7936,7 +8018,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     equipmentId?: StringFieldUpdateOperationsInput | string
     technicianId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7949,7 +8033,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     equipmentId?: StringFieldUpdateOperationsInput | string
     technicianId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7962,7 +8048,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     equipmentId: string
     teamId: string
@@ -7975,7 +8063,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     equipment?: EquipmentUpdateOneRequiredWithoutRequestsNestedInput
@@ -7988,7 +8078,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     equipmentId?: StringFieldUpdateOperationsInput | string
     teamId?: StringFieldUpdateOperationsInput | string
@@ -8001,7 +8093,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     equipmentId?: StringFieldUpdateOperationsInput | string
     teamId?: StringFieldUpdateOperationsInput | string
@@ -8014,7 +8108,9 @@ export namespace Prisma {
     type: string
     status?: string
     priority?: string
+    description?: string | null
     scheduledDate?: Date | string | null
+    estimatedHours?: number | null
     hoursSpent?: number | null
     teamId: string
     technicianId?: string | null
@@ -8027,7 +8123,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     team?: TeamUpdateOneRequiredWithoutRequestsNestedInput
@@ -8040,7 +8138,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     teamId?: StringFieldUpdateOperationsInput | string
     technicianId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8053,7 +8153,9 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     priority?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     scheduledDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    estimatedHours?: NullableFloatFieldUpdateOperationsInput | number | null
     hoursSpent?: NullableFloatFieldUpdateOperationsInput | number | null
     teamId?: StringFieldUpdateOperationsInput | string
     technicianId?: NullableStringFieldUpdateOperationsInput | string | null
