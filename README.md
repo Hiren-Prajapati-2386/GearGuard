@@ -2,6 +2,7 @@
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue) ![Prisma](https://img.shields.io/badge/Prisma-ORM-green) ![Status](https://img.shields.io/badge/Hackathon-Submission-orange)
 
+> **A robust, "Odoo-like" CMMS (Computerized Maintenance Management System) built to streamline asset tracking, automate team assignments, and manage repair lifecycles.**
 
 ---
 
@@ -52,22 +53,24 @@ graph TD
     F -->|Repaired| G[Close Ticket & Log Hours]
     F -->|Scrap| H[Mark Equipment as SCRAPPED]
 
-    ![Equpment](/public/Screenshot%202025-12-27%20154612.png)
-    ![Kanban](/public/Screenshot%202025-12-27%20154636.png)
+🖼️ Screenshots
+ ![Screenshot](public/Screenshot%202025-12-27%20154612.png)
+ ![Screenshot](public/Screenshot%202025-12-27%20154636.png)
 
- 🛠️ Tech Stack
-        Framework: Next.js 14 (App Router, Server Actions)
+()
 
-        Database: PostgreSQL
+🛠️ Tech Stack
+Framework: Next.js 14 (App Router, Server Actions)
 
-        ORM: Prisma (Relational Data Modeling)
+Database: PostgreSQL
 
-        Styling: Tailwind CSS
+ORM: Prisma (Relational Data Modeling)
 
-        UI Components: Lucide React (Icons), Hello Pangea DnD (Kanban), Date-Fns (Calendar)
+Styling: Tailwind CSS
 
+UI Components: Lucide React (Icons), Hello Pangea DnD (Kanban), Date-Fns (Calendar)
 
-Installation & Setup
+💻 Installation & Setup
 Follow these steps to run GearGuard locally:
 
 1. Clone the Repository
