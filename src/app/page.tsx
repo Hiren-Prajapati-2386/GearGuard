@@ -43,53 +43,53 @@ export default async function Dashboard() {
     <div className="max-w-7xl mx-auto space-y-8">
       
       {/* Hero Section */}
-      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+      <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-2xl p-8 border border-slate-200 shadow-lg relative overflow-hidden">
         <div className="relative z-10">
-           <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Maintenance Management System</h1>
-           <p className="text-slate-500 max-w-2xl text-lg">
+           <h1 className="text-4xl font-extrabold text-slate-900 mb-3">Maintenance Management System</h1>
+           <p className="text-slate-600 max-w-2xl text-lg leading-relaxed">
              Streamline your maintenance operations with comprehensive equipment tracking, team management, and request handling in one unified platform.
            </p>
         </div>
         {/* Decorative Background Pattern */}
-        <div className="absolute right-0 top-0 h-full w-1/3 bg-linear-to-l from-blue-50 to-transparent opacity-50"></div>
+        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-blue-100/50 to-transparent"></div>
       </div>
 
       {/* KPI Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all hover:border-blue-300">
            <div className="flex justify-between items-start mb-4">
-             <div className="p-2 bg-blue-50 text-blue-600 rounded-lg"><Wrench size={24} /></div>
-             <span className="text-xs font-bold text-slate-400 uppercase">Total Assets</span>
+             <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl shadow-sm"><Wrench size={24} /></div>
+             <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">Total Assets</span>
            </div>
            <div className="text-3xl font-extrabold text-slate-900 mb-1">{equipmentCount}</div>
-           <div className="text-sm text-green-600 font-medium">+2 this month</div>
+           <div className="text-sm text-green-600 font-semibold">+2 this month</div>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all hover:border-orange-300">
            <div className="flex justify-between items-start mb-4">
-             <div className="p-2 bg-orange-50 text-orange-600 rounded-lg"><Activity size={24} /></div>
-             <span className="text-xs font-bold text-slate-400 uppercase">Active Requests</span>
+             <div className="p-2.5 bg-orange-50 text-orange-600 rounded-xl shadow-sm"><Activity size={24} /></div>
+             <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">Active Requests</span>
            </div>
            <div className="text-3xl font-extrabold text-slate-900 mb-1">{activeRequests}</div>
-           <div className="text-sm text-orange-600 font-medium">+5 this week</div>
+           <div className="text-sm text-orange-600 font-semibold">+5 this week</div>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all hover:border-green-300">
            <div className="flex justify-between items-start mb-4">
-             <div className="p-2 bg-green-50 text-green-600 rounded-lg"><Users size={24} /></div>
-             <span className="text-xs font-bold text-slate-400 uppercase">Teams Available</span>
+             <div className="p-2.5 bg-green-50 text-green-600 rounded-xl shadow-sm"><Users size={24} /></div>
+             <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">Teams Available</span>
            </div>
            <div className="text-3xl font-extrabold text-slate-900 mb-1">{teamCount}</div>
-           <div className="text-sm text-slate-500 font-medium">All active</div>
+           <div className="text-sm text-slate-600 font-semibold">All active</div>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all hover:border-red-300">
            <div className="flex justify-between items-start mb-4">
-             <div className="p-2 bg-red-50 text-red-600 rounded-lg"><AlertTriangle size={24} /></div>
-             <span className="text-xs font-bold text-slate-400 uppercase">High Priority</span>
+             <div className="p-2.5 bg-red-50 text-red-600 rounded-xl shadow-sm"><AlertTriangle size={24} /></div>
+             <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">High Priority</span>
            </div>
            <div className="text-3xl font-extrabold text-slate-900 mb-1">{overdueRequests}</div>
-           <div className="text-sm text-red-600 font-medium">Needs attention</div>
+           <div className="text-sm text-red-600 font-semibold">Needs attention</div>
         </div>
       </div>
 

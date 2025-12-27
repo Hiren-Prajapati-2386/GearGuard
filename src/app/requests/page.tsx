@@ -1,7 +1,7 @@
 import db from "@/lib/db";
 import CreateRequestModal from "@/components/CreateRequestModal";
-import Link from "next/link"; // Needed for the "Clear Filter" button
-import { AlertTriangle, CheckCircle2, Clock, FilterX } from "lucide-react";
+import Link from "next/link";
+import { AlertTriangle, CheckCircle2, Clock, FilterX, ClipboardList } from "lucide-react";
 
 // Define the type for URL parameters
 type Props = {
@@ -37,20 +37,21 @@ export default async function RequestsPage({ searchParams }: Props) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto space-y-8">
-      <div className="flex justify-between items-center">
+    <div className="max-w-7xl mx-auto space-y-6">
+      {/* Header Section */}
+      <div className="flex justify-between items-start">
         <div>
-           <h1 className="text-4xl font-extrabold text-slate-900">{pageTitle}</h1>
-           <div className="flex items-center gap-3 mt-1">
-             <p className="text-slate-500">Manage breakdown tickets and work orders.</p>
+           <h1 className="text-4xl font-extrabold text-slate-900 mb-2">{pageTitle}</h1>
+           <div className="flex items-center gap-3">
+             <p className="text-slate-600 text-lg">Manage breakdown tickets and work orders</p>
              
              {/* Show 'Clear Filter' button if a filter is active */}
              {equipmentId && (
                <Link 
                  href="/requests" 
-                 className="flex items-center gap-1 text-xs font-bold bg-red-100 text-red-600 px-2 py-1 rounded hover:bg-red-200 transition-colors"
+                 className="flex items-center gap-2 text-xs font-bold bg-red-100 text-red-700 px-3 py-1.5 rounded-lg hover:bg-red-200 transition-colors border border-red-200"
                >
-                 <FilterX size={12} /> Clear Filter
+                 <FilterX size={14} /> Clear Filter
                </Link>
              )}
            </div>
@@ -59,78 +60,116 @@ export default async function RequestsPage({ searchParams }: Props) {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-          <div className="text-slate-500 font-medium mb-1">Total Requests</div>
-          <div className="text-3xl font-bold text-slate-900">{requests.length}</div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          <div className="text-slate-500 text-sm font-semibold mb-2 uppercase tracking-wide">Total Requests</div>
+          <div className="text-3xl font-extrabold text-slate-900">{requests.length}</div>
         </div>
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-          <div className="text-slate-500 font-medium mb-1">High Priority</div>
-          <div className="text-3xl font-bold text-red-600">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          <div className="text-slate-500 text-sm font-semibold mb-2 uppercase tracking-wide">High Priority</div>
+          <div className="text-3xl font-extrabold text-red-600">
             {requests.filter(r => r.priority === 'High').length}
           </div>
         </div>
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-           <div className="text-slate-500 font-medium mb-1">Open Tickets</div>
-           <div className="text-3xl font-bold text-orange-600">
-             {requests.filter(r => r.status !== 'Repaired').length}
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+           <div className="text-slate-500 text-sm font-semibold mb-2 uppercase tracking-wide">Open Tickets</div>
+           <div className="text-3xl font-extrabold text-orange-600">
+             {requests.filter(r => r.status !== 'Repaired' && r.status !== 'Scrap').length}
            </div>
         </div>
       </div>
 
-      {/* Requests List */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <table className="w-full text-left">
-          <thead className="bg-slate-50 border-b border-slate-200">
-            <tr>
-              <th className="p-4 font-semibold text-slate-600 text-sm">Subject</th>
-              <th className="p-4 font-semibold text-slate-600 text-sm">Equipment</th>
-              <th className="p-4 font-semibold text-slate-600 text-sm">Team</th>
-              <th className="p-4 font-semibold text-slate-600 text-sm">Priority</th>
-              <th className="p-4 font-semibold text-slate-600 text-sm">Status</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100">
-            {requests.length === 0 ? (
-               <tr>
-                 <td colSpan={5} className="p-8 text-center text-slate-400">No requests found.</td>
-               </tr>
-            ) : (
-              requests.map((r) => (
-                <tr key={r.id} className="hover:bg-slate-50 transition-colors group">
-                  <td className="p-4">
-                    <div className="font-bold text-slate-800">{r.subject}</div>
-                    <div className="text-xs text-slate-400">{r.type}</div>
-                  </td>
-                  <td className="p-4 text-slate-600">{r.equipment.name}</td>
-                  <td className="p-4">
-                    <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-xs font-bold">
-                      {r.team.name}
-                    </span>
-                  </td>
-                  <td className="p-4">
-                    <span className={`px-2 py-1 rounded text-xs font-bold ${
-                      r.priority === 'High' ? 'text-red-600 bg-red-50' : 
-                      r.priority === 'Medium' ? 'text-orange-600 bg-orange-50' : 
-                      'text-green-600 bg-green-50'
-                    }`}>
-                      {r.priority}
-                    </span>
-                  </td>
-                  <td className="p-4">
-                    <span className="flex items-center gap-1.5 text-sm font-medium text-slate-700">
-                       {r.status === 'New' && <AlertTriangle size={16} className="text-orange-500" />}
-                       {r.status === 'Repaired' && <CheckCircle2 size={16} className="text-green-500" />}
-                       {r.status === 'In Progress' && <Clock size={16} className="text-blue-500" />}
-                       {r.status === 'Scrap' && <span className="text-red-500">Scrapped</span>}
-                       {r.status !== 'Scrap' && r.status}
-                    </span>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+      {/* Requests Table */}
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead className="bg-gradient-to-r from-slate-50 to-slate-100 border-b-2 border-slate-200">
+              <tr>
+                <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Subject</th>
+                <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Equipment</th>
+                <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Team</th>
+                <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Priority</th>
+                <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Status</th>
+                <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Date</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {requests.length === 0 ? (
+                 <tr>
+                   <td colSpan={6} className="p-12 text-center">
+                     <div className="flex flex-col items-center gap-3">
+                       <ClipboardList className="text-slate-300" size={48} />
+                       <div className="text-slate-400 font-medium">No requests found</div>
+                       <div className="text-sm text-slate-400">Create your first maintenance request to get started</div>
+                     </div>
+                   </td>
+                 </tr>
+              ) : (
+                requests.map((r) => (
+                  <tr key={r.id} className="hover:bg-slate-50/50 transition-colors group">
+                    <td className="p-4">
+                      <div className="font-bold text-slate-900 mb-1">{r.subject}</div>
+                      <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">
+                        {r.type}
+                      </div>
+                    </td>
+                    <td className="p-4">
+                      <div className="font-semibold text-slate-800">{r.equipment.name}</div>
+                    </td>
+                    <td className="p-4">
+                      <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg text-xs font-bold border border-blue-200">
+                        {r.team.name}
+                      </span>
+                    </td>
+                    <td className="p-4">
+                      <span className={`inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold border ${
+                        r.priority === 'High' ? 'text-red-700 bg-red-50 border-red-200' : 
+                        r.priority === 'Medium' ? 'text-orange-700 bg-orange-50 border-orange-200' : 
+                        'text-green-700 bg-green-50 border-green-200'
+                      }`}>
+                        {r.priority}
+                      </span>
+                    </td>
+                    <td className="p-4">
+                      <span className="flex items-center gap-2 text-sm font-semibold">
+                         {r.status === 'New' && (
+                           <span className="flex items-center gap-1.5 text-orange-600">
+                             <AlertTriangle size={16} />
+                             {r.status}
+                           </span>
+                         )}
+                         {r.status === 'Repaired' && (
+                           <span className="flex items-center gap-1.5 text-green-600">
+                             <CheckCircle2 size={16} />
+                             {r.status}
+                           </span>
+                         )}
+                         {r.status === 'In Progress' && (
+                           <span className="flex items-center gap-1.5 text-blue-600">
+                             <Clock size={16} />
+                             {r.status}
+                           </span>
+                         )}
+                         {r.status === 'Scrap' && (
+                           <span className="text-red-600 font-bold">Scrapped</span>
+                         )}
+                      </span>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-sm text-slate-600">
+                        {new Date(r.createdAt).toLocaleDateString('en-US', { 
+                          month: 'short', 
+                          day: 'numeric',
+                          year: 'numeric'
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

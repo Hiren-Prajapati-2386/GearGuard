@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex">
           <Sidebar />
-          <main className="flex-1 ml-64 min-h-screen bg-gray-50 p-8">
+          <main className="flex-1 ml-64 min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 p-8">
             {children}
           </main>
         </div>

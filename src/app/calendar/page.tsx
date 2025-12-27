@@ -25,10 +25,10 @@ export default async function CalendarPage() {
 
   return (
     <div className="max-w-7xl mx-auto space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-start">
         <div>
-           <h1 className="text-3xl font-extrabold text-slate-900">Maintenance Schedule</h1>
-           <p className="text-slate-500 mt-1">Plan and track team workload</p>
+           <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Maintenance Schedule</h1>
+           <p className="text-slate-600 text-lg">Plan and track team workload</p>
         </div>
         <ScheduleModal equipmentList={equipmentList} />
       </div>
