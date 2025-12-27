@@ -1258,16 +1258,19 @@ export namespace Prisma {
   export type TeamMinAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
   }
 
   export type TeamMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
   }
 
   export type TeamCountAggregateOutputType = {
     id: number
     name: number
+    description: number
     _all: number
   }
 
@@ -1275,16 +1278,19 @@ export namespace Prisma {
   export type TeamMinAggregateInputType = {
     id?: true
     name?: true
+    description?: true
   }
 
   export type TeamMaxAggregateInputType = {
     id?: true
     name?: true
+    description?: true
   }
 
   export type TeamCountAggregateInputType = {
     id?: true
     name?: true
+    description?: true
     _all?: true
   }
 
@@ -1363,6 +1369,7 @@ export namespace Prisma {
   export type TeamGroupByOutputType = {
     id: string
     name: string
+    description: string | null
     _count: TeamCountAggregateOutputType | null
     _min: TeamMinAggregateOutputType | null
     _max: TeamMaxAggregateOutputType | null
@@ -1385,6 +1392,7 @@ export namespace Prisma {
   export type TeamSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
     technicians?: boolean | Team$techniciansArgs<ExtArgs>
     equipment?: boolean | Team$equipmentArgs<ExtArgs>
     requests?: boolean | Team$requestsArgs<ExtArgs>
@@ -1394,19 +1402,22 @@ export namespace Prisma {
   export type TeamSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
   }, ExtArgs["result"]["team"]>
 
   export type TeamSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
   }, ExtArgs["result"]["team"]>
 
   export type TeamSelectScalar = {
     id?: boolean
     name?: boolean
+    description?: boolean
   }
 
-  export type TeamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["team"]>
+  export type TeamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description", ExtArgs["result"]["team"]>
   export type TeamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     technicians?: boolean | Team$techniciansArgs<ExtArgs>
     equipment?: boolean | Team$equipmentArgs<ExtArgs>
@@ -1426,6 +1437,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      description: string | null
     }, ExtArgs["result"]["team"]>
     composites: {}
   }
@@ -1854,6 +1866,7 @@ export namespace Prisma {
   interface TeamFieldRefs {
     readonly id: FieldRef<"Team", 'String'>
     readonly name: FieldRef<"Team", 'String'>
+    readonly description: FieldRef<"Team", 'String'>
   }
     
 
@@ -2346,6 +2359,8 @@ export namespace Prisma {
     id: string | null
     name: string | null
     role: string | null
+    jobTitle: string | null
+    avatar: string | null
     teamId: string | null
   }
 
@@ -2353,6 +2368,8 @@ export namespace Prisma {
     id: string | null
     name: string | null
     role: string | null
+    jobTitle: string | null
+    avatar: string | null
     teamId: string | null
   }
 
@@ -2360,6 +2377,8 @@ export namespace Prisma {
     id: number
     name: number
     role: number
+    jobTitle: number
+    avatar: number
     teamId: number
     _all: number
   }
@@ -2369,6 +2388,8 @@ export namespace Prisma {
     id?: true
     name?: true
     role?: true
+    jobTitle?: true
+    avatar?: true
     teamId?: true
   }
 
@@ -2376,6 +2397,8 @@ export namespace Prisma {
     id?: true
     name?: true
     role?: true
+    jobTitle?: true
+    avatar?: true
     teamId?: true
   }
 
@@ -2383,6 +2406,8 @@ export namespace Prisma {
     id?: true
     name?: true
     role?: true
+    jobTitle?: true
+    avatar?: true
     teamId?: true
     _all?: true
   }
@@ -2463,6 +2488,8 @@ export namespace Prisma {
     id: string
     name: string
     role: string
+    jobTitle: string | null
+    avatar: string | null
     teamId: string | null
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -2487,6 +2514,8 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     role?: boolean
+    jobTitle?: boolean
+    avatar?: boolean
     teamId?: boolean
     team?: boolean | User$teamArgs<ExtArgs>
     requests?: boolean | User$requestsArgs<ExtArgs>
@@ -2497,6 +2526,8 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     role?: boolean
+    jobTitle?: boolean
+    avatar?: boolean
     teamId?: boolean
     team?: boolean | User$teamArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -2505,6 +2536,8 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     role?: boolean
+    jobTitle?: boolean
+    avatar?: boolean
     teamId?: boolean
     team?: boolean | User$teamArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -2513,10 +2546,12 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     role?: boolean
+    jobTitle?: boolean
+    avatar?: boolean
     teamId?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "role" | "teamId", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "role" | "jobTitle" | "avatar" | "teamId", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     team?: boolean | User$teamArgs<ExtArgs>
     requests?: boolean | User$requestsArgs<ExtArgs>
@@ -2539,6 +2574,8 @@ export namespace Prisma {
       id: string
       name: string
       role: string
+      jobTitle: string | null
+      avatar: string | null
       teamId: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2968,6 +3005,8 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'String'>
+    readonly jobTitle: FieldRef<"User", 'String'>
+    readonly avatar: FieldRef<"User", 'String'>
     readonly teamId: FieldRef<"User", 'String'>
   }
     
@@ -5761,7 +5800,8 @@ export namespace Prisma {
 
   export const TeamScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    description: 'description'
   };
 
   export type TeamScalarFieldEnum = (typeof TeamScalarFieldEnum)[keyof typeof TeamScalarFieldEnum]
@@ -5771,6 +5811,8 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     role: 'role',
+    jobTitle: 'jobTitle',
+    avatar: 'avatar',
     teamId: 'teamId'
   };
 
@@ -5901,6 +5943,7 @@ export namespace Prisma {
     NOT?: TeamWhereInput | TeamWhereInput[]
     id?: StringFilter<"Team"> | string
     name?: StringFilter<"Team"> | string
+    description?: StringNullableFilter<"Team"> | string | null
     technicians?: UserListRelationFilter
     equipment?: EquipmentListRelationFilter
     requests?: RequestListRelationFilter
@@ -5909,6 +5952,7 @@ export namespace Prisma {
   export type TeamOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
     technicians?: UserOrderByRelationAggregateInput
     equipment?: EquipmentOrderByRelationAggregateInput
     requests?: RequestOrderByRelationAggregateInput
@@ -5920,6 +5964,7 @@ export namespace Prisma {
     OR?: TeamWhereInput[]
     NOT?: TeamWhereInput | TeamWhereInput[]
     name?: StringFilter<"Team"> | string
+    description?: StringNullableFilter<"Team"> | string | null
     technicians?: UserListRelationFilter
     equipment?: EquipmentListRelationFilter
     requests?: RequestListRelationFilter
@@ -5928,6 +5973,7 @@ export namespace Prisma {
   export type TeamOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: TeamCountOrderByAggregateInput
     _max?: TeamMaxOrderByAggregateInput
     _min?: TeamMinOrderByAggregateInput
@@ -5939,6 +5985,7 @@ export namespace Prisma {
     NOT?: TeamScalarWhereWithAggregatesInput | TeamScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Team"> | string
     name?: StringWithAggregatesFilter<"Team"> | string
+    description?: StringNullableWithAggregatesFilter<"Team"> | string | null
   }
 
   export type UserWhereInput = {
@@ -5948,6 +5995,8 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
+    jobTitle?: StringNullableFilter<"User"> | string | null
+    avatar?: StringNullableFilter<"User"> | string | null
     teamId?: StringNullableFilter<"User"> | string | null
     team?: XOR<TeamNullableScalarRelationFilter, TeamWhereInput> | null
     requests?: RequestListRelationFilter
@@ -5957,6 +6006,8 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     role?: SortOrder
+    jobTitle?: SortOrderInput | SortOrder
+    avatar?: SortOrderInput | SortOrder
     teamId?: SortOrderInput | SortOrder
     team?: TeamOrderByWithRelationInput
     requests?: RequestOrderByRelationAggregateInput
@@ -5969,6 +6020,8 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
+    jobTitle?: StringNullableFilter<"User"> | string | null
+    avatar?: StringNullableFilter<"User"> | string | null
     teamId?: StringNullableFilter<"User"> | string | null
     team?: XOR<TeamNullableScalarRelationFilter, TeamWhereInput> | null
     requests?: RequestListRelationFilter
@@ -5978,6 +6031,8 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     role?: SortOrder
+    jobTitle?: SortOrderInput | SortOrder
+    avatar?: SortOrderInput | SortOrder
     teamId?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -5991,6 +6046,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     role?: StringWithAggregatesFilter<"User"> | string
+    jobTitle?: StringNullableWithAggregatesFilter<"User"> | string | null
+    avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     teamId?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
@@ -6158,6 +6215,7 @@ export namespace Prisma {
   export type TeamCreateInput = {
     id?: string
     name: string
+    description?: string | null
     technicians?: UserCreateNestedManyWithoutTeamInput
     equipment?: EquipmentCreateNestedManyWithoutTeamInput
     requests?: RequestCreateNestedManyWithoutTeamInput
@@ -6166,6 +6224,7 @@ export namespace Prisma {
   export type TeamUncheckedCreateInput = {
     id?: string
     name: string
+    description?: string | null
     technicians?: UserUncheckedCreateNestedManyWithoutTeamInput
     equipment?: EquipmentUncheckedCreateNestedManyWithoutTeamInput
     requests?: RequestUncheckedCreateNestedManyWithoutTeamInput
@@ -6174,6 +6233,7 @@ export namespace Prisma {
   export type TeamUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     technicians?: UserUpdateManyWithoutTeamNestedInput
     equipment?: EquipmentUpdateManyWithoutTeamNestedInput
     requests?: RequestUpdateManyWithoutTeamNestedInput
@@ -6182,6 +6242,7 @@ export namespace Prisma {
   export type TeamUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     technicians?: UserUncheckedUpdateManyWithoutTeamNestedInput
     equipment?: EquipmentUncheckedUpdateManyWithoutTeamNestedInput
     requests?: RequestUncheckedUpdateManyWithoutTeamNestedInput
@@ -6190,22 +6251,27 @@ export namespace Prisma {
   export type TeamCreateManyInput = {
     id?: string
     name: string
+    description?: string | null
   }
 
   export type TeamUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TeamUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateInput = {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
     team?: TeamCreateNestedOneWithoutTechniciansInput
     requests?: RequestCreateNestedManyWithoutTechnicianInput
   }
@@ -6214,6 +6280,8 @@ export namespace Prisma {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
     teamId?: string | null
     requests?: RequestUncheckedCreateNestedManyWithoutTechnicianInput
   }
@@ -6222,6 +6290,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     team?: TeamUpdateOneWithoutTechniciansNestedInput
     requests?: RequestUpdateManyWithoutTechnicianNestedInput
   }
@@ -6230,6 +6300,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     teamId?: NullableStringFieldUpdateOperationsInput | string | null
     requests?: RequestUncheckedUpdateManyWithoutTechnicianNestedInput
   }
@@ -6238,6 +6310,8 @@ export namespace Prisma {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
     teamId?: string | null
   }
 
@@ -6245,12 +6319,16 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     teamId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -6437,6 +6515,21 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type UserListRelationFilter = {
     every?: UserWhereInput
     some?: UserWhereInput
@@ -6455,6 +6548,11 @@ export namespace Prisma {
     none?: RequestWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type UserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -6470,16 +6568,19 @@ export namespace Prisma {
   export type TeamCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
   }
 
   export type TeamMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
   }
 
   export type TeamMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -6500,52 +6601,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type TeamNullableScalarRelationFilter = {
-    is?: TeamWhereInput | null
-    isNot?: TeamWhereInput | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type UserCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    role?: SortOrder
-    teamId?: SortOrder
-  }
-
-  export type UserMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    role?: SortOrder
-    teamId?: SortOrder
-  }
-
-  export type UserMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    role?: SortOrder
-    teamId?: SortOrder
-  }
-
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -6562,6 +6617,38 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type TeamNullableScalarRelationFilter = {
+    is?: TeamWhereInput | null
+    isNot?: TeamWhereInput | null
+  }
+
+  export type UserCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    jobTitle?: SortOrder
+    avatar?: SortOrder
+    teamId?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    jobTitle?: SortOrder
+    avatar?: SortOrder
+    teamId?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    role?: SortOrder
+    jobTitle?: SortOrder
+    avatar?: SortOrder
+    teamId?: SortOrder
   }
 
   export type TeamScalarRelationFilter = {
@@ -6782,6 +6869,10 @@ export namespace Prisma {
     set?: string
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type UserUpdateManyWithoutTeamNestedInput = {
     create?: XOR<UserCreateWithoutTeamInput, UserUncheckedCreateWithoutTeamInput> | UserCreateWithoutTeamInput[] | UserUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: UserCreateOrConnectWithoutTeamInput | UserCreateOrConnectWithoutTeamInput[]
@@ -6908,10 +6999,6 @@ export namespace Prisma {
     update?: RequestUpdateWithWhereUniqueWithoutTechnicianInput | RequestUpdateWithWhereUniqueWithoutTechnicianInput[]
     updateMany?: RequestUpdateManyWithWhereWithoutTechnicianInput | RequestUpdateManyWithWhereWithoutTechnicianInput[]
     deleteMany?: RequestScalarWhereInput | RequestScalarWhereInput[]
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type RequestUncheckedUpdateManyWithoutTechnicianNestedInput = {
@@ -7058,6 +7145,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -7084,20 +7185,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7209,6 +7296,8 @@ export namespace Prisma {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
     requests?: RequestCreateNestedManyWithoutTechnicianInput
   }
 
@@ -7216,6 +7305,8 @@ export namespace Prisma {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
     requests?: RequestUncheckedCreateNestedManyWithoutTechnicianInput
   }
 
@@ -7318,6 +7409,8 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
+    jobTitle?: StringNullableFilter<"User"> | string | null
+    avatar?: StringNullableFilter<"User"> | string | null
     teamId?: StringNullableFilter<"User"> | string | null
   }
 
@@ -7386,6 +7479,7 @@ export namespace Prisma {
   export type TeamCreateWithoutTechniciansInput = {
     id?: string
     name: string
+    description?: string | null
     equipment?: EquipmentCreateNestedManyWithoutTeamInput
     requests?: RequestCreateNestedManyWithoutTeamInput
   }
@@ -7393,6 +7487,7 @@ export namespace Prisma {
   export type TeamUncheckedCreateWithoutTechniciansInput = {
     id?: string
     name: string
+    description?: string | null
     equipment?: EquipmentUncheckedCreateNestedManyWithoutTeamInput
     requests?: RequestUncheckedCreateNestedManyWithoutTeamInput
   }
@@ -7452,6 +7547,7 @@ export namespace Prisma {
   export type TeamUpdateWithoutTechniciansInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     equipment?: EquipmentUpdateManyWithoutTeamNestedInput
     requests?: RequestUpdateManyWithoutTeamNestedInput
   }
@@ -7459,6 +7555,7 @@ export namespace Prisma {
   export type TeamUncheckedUpdateWithoutTechniciansInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     equipment?: EquipmentUncheckedUpdateManyWithoutTeamNestedInput
     requests?: RequestUncheckedUpdateManyWithoutTeamNestedInput
   }
@@ -7482,6 +7579,7 @@ export namespace Prisma {
   export type TeamCreateWithoutEquipmentInput = {
     id?: string
     name: string
+    description?: string | null
     technicians?: UserCreateNestedManyWithoutTeamInput
     requests?: RequestCreateNestedManyWithoutTeamInput
   }
@@ -7489,6 +7587,7 @@ export namespace Prisma {
   export type TeamUncheckedCreateWithoutEquipmentInput = {
     id?: string
     name: string
+    description?: string | null
     technicians?: UserUncheckedCreateNestedManyWithoutTeamInput
     requests?: RequestUncheckedCreateNestedManyWithoutTeamInput
   }
@@ -7548,6 +7647,7 @@ export namespace Prisma {
   export type TeamUpdateWithoutEquipmentInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     technicians?: UserUpdateManyWithoutTeamNestedInput
     requests?: RequestUpdateManyWithoutTeamNestedInput
   }
@@ -7555,6 +7655,7 @@ export namespace Prisma {
   export type TeamUncheckedUpdateWithoutEquipmentInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     technicians?: UserUncheckedUpdateManyWithoutTeamNestedInput
     requests?: RequestUncheckedUpdateManyWithoutTeamNestedInput
   }
@@ -7603,6 +7704,7 @@ export namespace Prisma {
   export type TeamCreateWithoutRequestsInput = {
     id?: string
     name: string
+    description?: string | null
     technicians?: UserCreateNestedManyWithoutTeamInput
     equipment?: EquipmentCreateNestedManyWithoutTeamInput
   }
@@ -7610,6 +7712,7 @@ export namespace Prisma {
   export type TeamUncheckedCreateWithoutRequestsInput = {
     id?: string
     name: string
+    description?: string | null
     technicians?: UserUncheckedCreateNestedManyWithoutTeamInput
     equipment?: EquipmentUncheckedCreateNestedManyWithoutTeamInput
   }
@@ -7623,6 +7726,8 @@ export namespace Prisma {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
     team?: TeamCreateNestedOneWithoutTechniciansInput
   }
 
@@ -7630,6 +7735,8 @@ export namespace Prisma {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
     teamId?: string | null
   }
 
@@ -7683,6 +7790,7 @@ export namespace Prisma {
   export type TeamUpdateWithoutRequestsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     technicians?: UserUpdateManyWithoutTeamNestedInput
     equipment?: EquipmentUpdateManyWithoutTeamNestedInput
   }
@@ -7690,6 +7798,7 @@ export namespace Prisma {
   export type TeamUncheckedUpdateWithoutRequestsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     technicians?: UserUncheckedUpdateManyWithoutTeamNestedInput
     equipment?: EquipmentUncheckedUpdateManyWithoutTeamNestedInput
   }
@@ -7709,6 +7818,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     team?: TeamUpdateOneWithoutTechniciansNestedInput
   }
 
@@ -7716,6 +7827,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     teamId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -7723,6 +7836,8 @@ export namespace Prisma {
     id?: string
     name: string
     role: string
+    jobTitle?: string | null
+    avatar?: string | null
   }
 
   export type EquipmentCreateManyTeamInput = {
@@ -7751,6 +7866,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     requests?: RequestUpdateManyWithoutTechnicianNestedInput
   }
 
@@ -7758,6 +7875,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
     requests?: RequestUncheckedUpdateManyWithoutTechnicianNestedInput
   }
 
@@ -7765,6 +7884,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    jobTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EquipmentUpdateWithoutTeamInput = {

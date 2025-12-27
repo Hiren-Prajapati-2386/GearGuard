@@ -10,7 +10,8 @@ generator client {
 
 model Team {
   id          String      @id @default(cuid())
-  name        String // e.g., Mechanics, IT Support
+  name        String // e.g., Mechanical Team
+  description String? // NEW: "Handles all mechanical repairs..."
   technicians User[]
   equipment   Equipment[]
   requests    Request[]
@@ -20,9 +21,11 @@ model User {
   id       String    @id @default(cuid())
   name     String
   role     String // e.g., Admin, Technician
+  jobTitle String? // NEW: "Senior Technician", "Apprentice"
+  avatar   String? // NEW: Optional URL for profile picture
   teamId   String?
   team     Team?     @relation(fields: [teamId], references: [id])
-  requests Request[] // Requests assigned to this tech
+  requests Request[]
 }
 
 model Equipment {
