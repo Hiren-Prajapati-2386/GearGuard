@@ -24,3 +24,34 @@ export async function createEquipment(formData: FormData) {
   // This refreshes the page so the new equipment appears immediately
   revalidatePath("/equipment");
 }
+
+export async function createRequest(formData: FormData) {
+  const subject = formData.get("subject") as string;
+  const description = formData.get("description") as string;
+  const equipmentId = formData.get("equipmentId") as string;
+  const type = formData.get("type") as string;
+  const priority = formData.get("priority") as string;
+  
+  // 1. Find the equipment to get its Team ID
+  const equipment = await db.equipment.findUnique({
+    where: { id: equipmentId },
+    include: { team: true } // We need the team connection
+  });
+
+  if (!equipment) throw new Error("Equipment not found");
+
+  // 2. Create the request and AUTOMATICALLY link the correct team
+  await db.request.create({
+    data: {
+      subject,
+      type,         // 'Corrective' or 'Preventive'
+      priority,     // 'High', 'Medium', 'Low'
+      status: "New",
+      equipmentId: equipment.id,
+      teamId: equipment.teamId, // <--- MAGIC: Auto-assigns the team
+    },
+  });
+
+  revalidatePath("/requests");
+  revalidatePath("/kanban"); // We'll build this later
+}
