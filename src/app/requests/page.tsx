@@ -83,7 +83,7 @@ export default async function RequestsPage({ searchParams }: Props) {
       <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left">
-            <thead className="bg-gradient-to-r from-slate-50 to-slate-100 border-b-2 border-slate-200">
+            <thead className="bg-linear-to-r from-slate-50 to-slate-100 border-b-2 border-slate-200">
               <tr>
                 <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Subject</th>
                 <th className="p-4 font-bold text-slate-700 text-sm uppercase tracking-wide">Equipment</th>
