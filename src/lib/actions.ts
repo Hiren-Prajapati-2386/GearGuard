@@ -55,3 +55,13 @@ export async function createRequest(formData: FormData) {
   revalidatePath("/requests");
   revalidatePath("/kanban"); // We'll build this later
 }
+
+export async function updateRequestStatus(requestId: string, newStatus: string) {
+  await db.request.update({
+    where: { id: requestId },
+    data: { status: newStatus }
+  });
+  
+  revalidatePath("/kanban");
+  revalidatePath("/requests");
+}
