@@ -54,8 +54,8 @@ graph TD
     F -->|Scrap| H[Mark Equipment as SCRAPPED]
 
 🖼️ Screenshots
- ![Screenshot](public/Screenshot%202025-12-27%20154612.png)
- ![Screenshot](public/Screenshot%202025-12-27%20154636.png)
+ ![Home Page](/public/Screenshot%202025-12-27%20154612.png)
+ ![Screenshot](/public/Screenshot%202025-12-27%20154636.png)
 
 ()
 
