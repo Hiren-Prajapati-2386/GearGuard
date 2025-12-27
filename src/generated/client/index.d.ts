@@ -3482,6 +3482,9 @@ export namespace Prisma {
     department: string | null
     location: string | null
     status: string | null
+    purchaseDate: Date | null
+    warrantyEnd: Date | null
+    assignedTo: string | null
     teamId: string | null
   }
 
@@ -3492,6 +3495,9 @@ export namespace Prisma {
     department: string | null
     location: string | null
     status: string | null
+    purchaseDate: Date | null
+    warrantyEnd: Date | null
+    assignedTo: string | null
     teamId: string | null
   }
 
@@ -3502,6 +3508,9 @@ export namespace Prisma {
     department: number
     location: number
     status: number
+    purchaseDate: number
+    warrantyEnd: number
+    assignedTo: number
     teamId: number
     _all: number
   }
@@ -3514,6 +3523,9 @@ export namespace Prisma {
     department?: true
     location?: true
     status?: true
+    purchaseDate?: true
+    warrantyEnd?: true
+    assignedTo?: true
     teamId?: true
   }
 
@@ -3524,6 +3536,9 @@ export namespace Prisma {
     department?: true
     location?: true
     status?: true
+    purchaseDate?: true
+    warrantyEnd?: true
+    assignedTo?: true
     teamId?: true
   }
 
@@ -3534,6 +3549,9 @@ export namespace Prisma {
     department?: true
     location?: true
     status?: true
+    purchaseDate?: true
+    warrantyEnd?: true
+    assignedTo?: true
     teamId?: true
     _all?: true
   }
@@ -3617,6 +3635,9 @@ export namespace Prisma {
     department: string
     location: string
     status: string
+    purchaseDate: Date | null
+    warrantyEnd: Date | null
+    assignedTo: string | null
     teamId: string
     _count: EquipmentCountAggregateOutputType | null
     _min: EquipmentMinAggregateOutputType | null
@@ -3644,6 +3665,9 @@ export namespace Prisma {
     department?: boolean
     location?: boolean
     status?: boolean
+    purchaseDate?: boolean
+    warrantyEnd?: boolean
+    assignedTo?: boolean
     teamId?: boolean
     team?: boolean | TeamDefaultArgs<ExtArgs>
     requests?: boolean | Equipment$requestsArgs<ExtArgs>
@@ -3657,6 +3681,9 @@ export namespace Prisma {
     department?: boolean
     location?: boolean
     status?: boolean
+    purchaseDate?: boolean
+    warrantyEnd?: boolean
+    assignedTo?: boolean
     teamId?: boolean
     team?: boolean | TeamDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["equipment"]>
@@ -3668,6 +3695,9 @@ export namespace Prisma {
     department?: boolean
     location?: boolean
     status?: boolean
+    purchaseDate?: boolean
+    warrantyEnd?: boolean
+    assignedTo?: boolean
     teamId?: boolean
     team?: boolean | TeamDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["equipment"]>
@@ -3679,10 +3709,13 @@ export namespace Prisma {
     department?: boolean
     location?: boolean
     status?: boolean
+    purchaseDate?: boolean
+    warrantyEnd?: boolean
+    assignedTo?: boolean
     teamId?: boolean
   }
 
-  export type EquipmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "serialNumber" | "department" | "location" | "status" | "teamId", ExtArgs["result"]["equipment"]>
+  export type EquipmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "serialNumber" | "department" | "location" | "status" | "purchaseDate" | "warrantyEnd" | "assignedTo" | "teamId", ExtArgs["result"]["equipment"]>
   export type EquipmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     team?: boolean | TeamDefaultArgs<ExtArgs>
     requests?: boolean | Equipment$requestsArgs<ExtArgs>
@@ -3708,6 +3741,9 @@ export namespace Prisma {
       department: string
       location: string
       status: string
+      purchaseDate: Date | null
+      warrantyEnd: Date | null
+      assignedTo: string | null
       teamId: string
     }, ExtArgs["result"]["equipment"]>
     composites: {}
@@ -4140,6 +4176,9 @@ export namespace Prisma {
     readonly department: FieldRef<"Equipment", 'String'>
     readonly location: FieldRef<"Equipment", 'String'>
     readonly status: FieldRef<"Equipment", 'String'>
+    readonly purchaseDate: FieldRef<"Equipment", 'DateTime'>
+    readonly warrantyEnd: FieldRef<"Equipment", 'DateTime'>
+    readonly assignedTo: FieldRef<"Equipment", 'String'>
     readonly teamId: FieldRef<"Equipment", 'String'>
   }
     
@@ -5856,6 +5895,9 @@ export namespace Prisma {
     department: 'department',
     location: 'location',
     status: 'status',
+    purchaseDate: 'purchaseDate',
+    warrantyEnd: 'warrantyEnd',
+    assignedTo: 'assignedTo',
     teamId: 'teamId'
   };
 
@@ -6093,6 +6135,9 @@ export namespace Prisma {
     department?: StringFilter<"Equipment"> | string
     location?: StringFilter<"Equipment"> | string
     status?: StringFilter<"Equipment"> | string
+    purchaseDate?: DateTimeNullableFilter<"Equipment"> | Date | string | null
+    warrantyEnd?: DateTimeNullableFilter<"Equipment"> | Date | string | null
+    assignedTo?: StringNullableFilter<"Equipment"> | string | null
     teamId?: StringFilter<"Equipment"> | string
     team?: XOR<TeamScalarRelationFilter, TeamWhereInput>
     requests?: RequestListRelationFilter
@@ -6105,6 +6150,9 @@ export namespace Prisma {
     department?: SortOrder
     location?: SortOrder
     status?: SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    warrantyEnd?: SortOrderInput | SortOrder
+    assignedTo?: SortOrderInput | SortOrder
     teamId?: SortOrder
     team?: TeamOrderByWithRelationInput
     requests?: RequestOrderByRelationAggregateInput
@@ -6120,6 +6168,9 @@ export namespace Prisma {
     department?: StringFilter<"Equipment"> | string
     location?: StringFilter<"Equipment"> | string
     status?: StringFilter<"Equipment"> | string
+    purchaseDate?: DateTimeNullableFilter<"Equipment"> | Date | string | null
+    warrantyEnd?: DateTimeNullableFilter<"Equipment"> | Date | string | null
+    assignedTo?: StringNullableFilter<"Equipment"> | string | null
     teamId?: StringFilter<"Equipment"> | string
     team?: XOR<TeamScalarRelationFilter, TeamWhereInput>
     requests?: RequestListRelationFilter
@@ -6132,6 +6183,9 @@ export namespace Prisma {
     department?: SortOrder
     location?: SortOrder
     status?: SortOrder
+    purchaseDate?: SortOrderInput | SortOrder
+    warrantyEnd?: SortOrderInput | SortOrder
+    assignedTo?: SortOrderInput | SortOrder
     teamId?: SortOrder
     _count?: EquipmentCountOrderByAggregateInput
     _max?: EquipmentMaxOrderByAggregateInput
@@ -6148,6 +6202,9 @@ export namespace Prisma {
     department?: StringWithAggregatesFilter<"Equipment"> | string
     location?: StringWithAggregatesFilter<"Equipment"> | string
     status?: StringWithAggregatesFilter<"Equipment"> | string
+    purchaseDate?: DateTimeNullableWithAggregatesFilter<"Equipment"> | Date | string | null
+    warrantyEnd?: DateTimeNullableWithAggregatesFilter<"Equipment"> | Date | string | null
+    assignedTo?: StringNullableWithAggregatesFilter<"Equipment"> | string | null
     teamId?: StringWithAggregatesFilter<"Equipment"> | string
   }
 
@@ -6381,6 +6438,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
     team: TeamCreateNestedOneWithoutEquipmentInput
     requests?: RequestCreateNestedManyWithoutEquipmentInput
   }
@@ -6392,6 +6452,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
     teamId: string
     requests?: RequestUncheckedCreateNestedManyWithoutEquipmentInput
   }
@@ -6403,6 +6466,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
     team?: TeamUpdateOneRequiredWithoutEquipmentNestedInput
     requests?: RequestUpdateManyWithoutEquipmentNestedInput
   }
@@ -6414,6 +6480,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
     teamId?: StringFieldUpdateOperationsInput | string
     requests?: RequestUncheckedUpdateManyWithoutEquipmentNestedInput
   }
@@ -6425,6 +6494,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
     teamId: string
   }
 
@@ -6435,6 +6507,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EquipmentUncheckedUpdateManyInput = {
@@ -6444,6 +6519,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
     teamId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -6707,6 +6785,17 @@ export namespace Prisma {
     teamId?: SortOrder
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type TeamScalarRelationFilter = {
     is?: TeamWhereInput
     isNot?: TeamWhereInput
@@ -6719,6 +6808,9 @@ export namespace Prisma {
     department?: SortOrder
     location?: SortOrder
     status?: SortOrder
+    purchaseDate?: SortOrder
+    warrantyEnd?: SortOrder
+    assignedTo?: SortOrder
     teamId?: SortOrder
   }
 
@@ -6729,6 +6821,9 @@ export namespace Prisma {
     department?: SortOrder
     location?: SortOrder
     status?: SortOrder
+    purchaseDate?: SortOrder
+    warrantyEnd?: SortOrder
+    assignedTo?: SortOrder
     teamId?: SortOrder
   }
 
@@ -6739,10 +6834,13 @@ export namespace Prisma {
     department?: SortOrder
     location?: SortOrder
     status?: SortOrder
+    purchaseDate?: SortOrder
+    warrantyEnd?: SortOrder
+    assignedTo?: SortOrder
     teamId?: SortOrder
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -6750,7 +6848,10 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type FloatNullableFilter<$PrismaModel = never> = {
@@ -6841,20 +6942,6 @@ export namespace Prisma {
   export type RequestSumOrderByAggregateInput = {
     estimatedHours?: SortOrder
     hoursSpent?: SortOrder
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7099,6 +7186,10 @@ export namespace Prisma {
     connect?: RequestWhereUniqueInput | RequestWhereUniqueInput[]
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type TeamUpdateOneRequiredWithoutEquipmentNestedInput = {
     create?: XOR<TeamCreateWithoutEquipmentInput, TeamUncheckedCreateWithoutEquipmentInput>
     connectOrCreate?: TeamCreateOrConnectWithoutEquipmentInput
@@ -7151,10 +7242,6 @@ export namespace Prisma {
     create?: XOR<UserCreateWithoutRequestsInput, UserUncheckedCreateWithoutRequestsInput>
     connectOrCreate?: UserCreateOrConnectWithoutRequestsInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type NullableFloatFieldUpdateOperationsInput = {
@@ -7290,6 +7377,20 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -7310,20 +7411,6 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7391,6 +7478,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
     requests?: RequestCreateNestedManyWithoutEquipmentInput
   }
 
@@ -7401,6 +7491,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
     requests?: RequestUncheckedCreateNestedManyWithoutEquipmentInput
   }
 
@@ -7508,6 +7601,9 @@ export namespace Prisma {
     department?: StringFilter<"Equipment"> | string
     location?: StringFilter<"Equipment"> | string
     status?: StringFilter<"Equipment"> | string
+    purchaseDate?: DateTimeNullableFilter<"Equipment"> | Date | string | null
+    warrantyEnd?: DateTimeNullableFilter<"Equipment"> | Date | string | null
+    assignedTo?: StringNullableFilter<"Equipment"> | string | null
     teamId?: StringFilter<"Equipment"> | string
   }
 
@@ -7761,6 +7857,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
     team: TeamCreateNestedOneWithoutEquipmentInput
   }
 
@@ -7771,6 +7870,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
     teamId: string
   }
 
@@ -7841,6 +7943,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
     team?: TeamUpdateOneRequiredWithoutEquipmentNestedInput
   }
 
@@ -7851,6 +7956,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
     teamId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -7925,6 +8033,9 @@ export namespace Prisma {
     department: string
     location: string
     status?: string
+    purchaseDate?: Date | string | null
+    warrantyEnd?: Date | string | null
+    assignedTo?: string | null
   }
 
   export type RequestCreateManyTeamInput = {
@@ -7975,6 +8086,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
     requests?: RequestUpdateManyWithoutEquipmentNestedInput
   }
 
@@ -7985,6 +8099,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
     requests?: RequestUncheckedUpdateManyWithoutEquipmentNestedInput
   }
 
@@ -7995,6 +8112,9 @@ export namespace Prisma {
     department?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    purchaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warrantyEnd?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignedTo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RequestUpdateWithoutTeamInput = {

@@ -34,7 +34,12 @@ model Equipment {
   serialNumber String    @unique
   department   String
   location     String
-  status       String    @default("Active") // Active or Scrapped
+  status       String    @default("Active")
+  
+  purchaseDate DateTime? 
+  warrantyEnd  DateTime?
+  assignedTo   String?   
+  
   teamId       String
   team         Team      @relation(fields: [teamId], references: [id])
   requests     Request[]

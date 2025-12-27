@@ -142,6 +142,9 @@ exports.Prisma.EquipmentScalarFieldEnum = {
   department: 'department',
   location: 'location',
   status: 'status',
+  purchaseDate: 'purchaseDate',
+  warrantyEnd: 'warrantyEnd',
+  assignedTo: 'assignedTo',
   teamId: 'teamId'
 };
 

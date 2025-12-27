@@ -51,7 +51,7 @@ export default async function Dashboard() {
            </p>
         </div>
         {/* Decorative Background Pattern */}
-        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-blue-50 to-transparent opacity-50"></div>
+        <div className="absolute right-0 top-0 h-full w-1/3 bg-linear-to-l from-blue-50 to-transparent opacity-50"></div>
       </div>
 
       {/* KPI Stats Grid */}

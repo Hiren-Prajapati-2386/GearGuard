@@ -1,9 +1,23 @@
 import db from "@/lib/db";
 import CreateRequestModal from "@/components/CreateRequestModal";
-import { AlertTriangle, CheckCircle2, Clock } from "lucide-react";
+import Link from "next/link"; // Needed for the "Clear Filter" button
+import { AlertTriangle, CheckCircle2, Clock, FilterX } from "lucide-react";
 
-export default async function RequestsPage() {
+// Define the type for URL parameters
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default async function RequestsPage({ searchParams }: Props) {
+  // 1. Get equipmentId from the URL (if it exists)
+  const equipmentId = typeof searchParams.equipmentId === 'string' ? searchParams.equipmentId : undefined;
+
+  // 2. Create the filter condition
+  const whereCondition = equipmentId ? { equipmentId } : {};
+
+  // 3. Fetch requests (applying the filter if needed)
   const requests = await db.request.findMany({
+    where: whereCondition,
     include: {
       equipment: true,
       team: true
@@ -15,12 +29,31 @@ export default async function RequestsPage() {
     include: { team: true }
   });
 
+  // 4. Get the equipment name to show a nice title
+  let pageTitle = "Maintenance Requests";
+  if (equipmentId) {
+    const eq = await db.equipment.findUnique({ where: { id: equipmentId } });
+    if (eq) pageTitle = `History for: ${eq.name}`;
+  }
+
   return (
     <div className="max-w-7xl mx-auto space-y-8">
       <div className="flex justify-between items-center">
         <div>
-           <h1 className="text-4xl font-extrabold text-slate-900">Maintenance Requests</h1>
-           <p className="text-slate-500 mt-1">Manage breakdown tickets and work orders.</p>
+           <h1 className="text-4xl font-extrabold text-slate-900">{pageTitle}</h1>
+           <div className="flex items-center gap-3 mt-1">
+             <p className="text-slate-500">Manage breakdown tickets and work orders.</p>
+             
+             {/* Show 'Clear Filter' button if a filter is active */}
+             {equipmentId && (
+               <Link 
+                 href="/requests" 
+                 className="flex items-center gap-1 text-xs font-bold bg-red-100 text-red-600 px-2 py-1 rounded hover:bg-red-200 transition-colors"
+               >
+                 <FilterX size={12} /> Clear Filter
+               </Link>
+             )}
+           </div>
         </div>
         <CreateRequestModal equipmentList={equipmentList} />
       </div>
@@ -89,7 +122,8 @@ export default async function RequestsPage() {
                        {r.status === 'New' && <AlertTriangle size={16} className="text-orange-500" />}
                        {r.status === 'Repaired' && <CheckCircle2 size={16} className="text-green-500" />}
                        {r.status === 'In Progress' && <Clock size={16} className="text-blue-500" />}
-                       {r.status}
+                       {r.status === 'Scrap' && <span className="text-red-500">Scrapped</span>}
+                       {r.status !== 'Scrap' && r.status}
                     </span>
                   </td>
                 </tr>
