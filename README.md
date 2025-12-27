@@ -43,18 +43,17 @@
 
 Here is how the "Smart Logic" works inside the system:
 
-```mermaid
-graph TD
-    A[User Reports Issue] -->|Selects Equipment| B{System Checks DB}
-    B -->|Finds Equipment Team| C[Auto-Assigns Ticket]
-    C --> D[Kanban Board: New]
-    D -->|Technician Drags| E[In Progress]
-    E -->|Technician Drags| F{Final Status?}
-    F -->|Repaired| G[Close Ticket & Log Hours]
-    F -->|Scrap| H[Mark Equipment as SCRAPPED]
+      graph TD
+          A[User Reports Issue] -->|Selects Equipment| B{System Checks DB}
+          B -->|Finds Equipment Team| C[Auto-Assigns Ticket]
+          C --> D[Kanban Board: New]
+          D -->|Technician Drags| E[In Progress]
+          E -->|Technician Drags| F{Final Status?}
+          F -->|Repaired| G[Close Ticket & Log Hours]
+          F -->|Scrap| H[Mark Equipment as SCRAPPED]
 
 🖼️ Screenshots
- ![Home Page](/public/Screenshot%202025-12-27%20154612.png)
+ ![Home Page](public/Screenshot%202025-12-27%20154612.png)
  ![Screenshot](/public/Screenshot%202025-12-27%20154636.png)
 
 ()
