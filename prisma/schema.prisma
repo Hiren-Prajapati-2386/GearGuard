@@ -1,0 +1,55 @@
+// This is your Prisma schema file
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Team {
+  id          String      @id @default(cuid())
+  name        String      // e.g., Mechanics, IT Support
+  technicians User[]
+  equipment   Equipment[]
+  requests    Request[]
+}
+
+model User {
+  id        String    @id @default(cuid())
+  name      String
+  role      String    // e.g., Admin, Technician
+  teamId    String?
+  team      Team?     @relation(fields: [teamId], references: [id])
+  requests  Request[] // Requests assigned to this tech
+}
+
+model Equipment {
+  id           String    @id @default(cuid())
+  name         String
+  serialNumber String    @unique
+  department   String
+  location     String
+  status       String    @default("Active") // Active or Scrapped
+  teamId       String
+  team         Team      @relation(fields: [teamId], references: [id])
+  requests     Request[]
+}
+
+model Request {
+  id           String    @id @default(cuid())
+  subject      String
+  type         String    // Corrective or Preventive
+  status       String    @default("New") // New, In Progress, Repaired, Scrap
+  priority     String    @default("Medium")
+  scheduledDate DateTime?
+  hoursSpent   Float?    @default(0)
+  equipmentId  String
+  equipment    Equipment @relation(fields: [equipmentId], references: [id])
+  teamId       String
+  team         Team      @relation(fields: [teamId], references: [id])
+  technicianId String?
+  technician   User?     @relation(fields: [technicianId], references: [id])
+  createdAt    DateTime  @default(now())
+}
